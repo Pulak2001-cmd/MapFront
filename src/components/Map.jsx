@@ -292,6 +292,13 @@ function Map() {
     setBlock("");
     setType("");
   }
+  const handleMarker = (arr)=>{
+    const obj = []
+    for(let i=0; i<arr.length; i++){ 
+      obj.push(<Marker key={i} position={{lat: arr[i].lat, lng: arr[i].lng}} icon={{ url: "src/logo.png", scaledSize: new google.maps.Size(50,50), origin: new google.maps.Point(0, 0), anchor:new google.maps.Point(25, 25)}} onClick={()=>{setSelected(arr[i]);getplace(arr[i].lat, arr[i].lng); setInst(arr[i].name);}} />)
+    }
+    return obj;
+  }
   return isLoaded ? (
       <div>
         <div className="Box">
@@ -361,9 +368,10 @@ function Map() {
         }}
 
       >
-        {data && arr.map((marker, index)=> (
+        {/* {data && arr.map((marker, index)=> (
             <Marker key={index} position={{lat: marker.lat, lng: marker.lng}} icon={{ url: "src/logo.png", scaledSize: new window.google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchor:new google.maps.Point(25, 25)}} onClick={()=>{setSelected(marker);getplace(marker.lat, marker.lng); setInst(marker.name);}} />
-        )) }
+        )) } */}
+        {data && handleMarker(arr)}
         {selected ? (<InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={()=>{setSelected(null); setName("");}}>
         <div className="card" style={{width: "18rem"}}>
           {/* <img src="/src/logo.png" className="card-img-top" alt="..." height="40px" widht="40px"/> */}
