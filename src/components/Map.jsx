@@ -3,6 +3,7 @@ import { GoogleMap, MarkerClusterer, useJsApiLoader, useLoadScript, Marker, Info
 import axios from 'axios';
 import Position from '../Positions';
 import Lat from './Lat6';
+import logo from './../logo.png';
 
 
 const containerStyle = {
@@ -295,7 +296,7 @@ function Map() {
   const handleMarker = (arr)=>{
     const obj = []
     for(let i=0; i<arr.length; i++){ 
-      obj.push(<Marker key={i} position={{lat: arr[i].lat, lng: arr[i].lng}} icon={{ url: "src/logo.png", scaledSize: new google.maps.Size(50,50), origin: new google.maps.Point(0, 0), anchor:new google.maps.Point(25, 25)}} onClick={()=>{setSelected(arr[i]);getplace(arr[i].lat, arr[i].lng); setInst(arr[i].name);}} />)
+      obj.push(<Marker key={i} position={{lat: arr[i].lat, lng: arr[i].lng}} icon={{ url: logo, scaledSize: new google.maps.Size(50,50), origin: new google.maps.Point(0, 0), anchor:new google.maps.Point(25, 25)}} onClick={()=>{setSelected(arr[i]);getplace(arr[i].lat, arr[i].lng); setInst(arr[i].name);}} />)
     }
     return obj;
   }
