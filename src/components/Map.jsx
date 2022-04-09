@@ -153,7 +153,7 @@ function Map() {
   }
   const handleBlock = async (e)=>{
     setBlock(e.target.value);
-    const res = await axios.get(`https://dcb-node-back.herokuapp.com//colleges/block/${e.target.value}`);
+    const res = await axios.get(`https://dcb-node-back.herokuapp.com/colleges/block/${e.target.value}`);
     const list = []
     if (state === "" && type === ""){
       res.data.map(async (i)=>{
