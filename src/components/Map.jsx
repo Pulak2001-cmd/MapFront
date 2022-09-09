@@ -42,7 +42,7 @@ function distance(latitude1, longitude1, latitude2, longitude2) {
 function Map() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAiOEixVl4_Xip7RnI-ZmDLT3cXgv3xoYA"
+    googleMapsApiKey: "AIzaSyBsEUx2YIYkEYR1aqL6cHGUdaFUWI-dRxU"
   })
   const [st_list, setST] = React.useState([]);
   const [status, setStatus] = React.useState([]);
